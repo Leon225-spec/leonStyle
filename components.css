@@ -1,4 +1,5 @@
 /* assets/css/components.css */
+
 /* Logo */
 .logo {
   font-family: var(--font-heading);
@@ -8,38 +9,49 @@
 .logo-charcoal { color: var(--color-charcoal); }
 .logo-accent   { color: var(--color-accent); }
 
-/* Navigation */
-/* MOBILE: hidden by default */
+/* Navigation dropdown (mobile) */
 .nav-menu {
   display: none;
   position: absolute;
   top: 100%;
   left: 0;
   right: 0;
-  background: var(--color-white);
+  background: var(--color-charcoal);
   z-index: 999;
 }
 
-/* When JS adds “active”: show it */
 .nav-menu.active {
   display: block;
 }
 
-
+/* Centered, padded links with soft separators */
 .nav-list {
   list-style: none;
   margin: 0;
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  align-items: center;
 }
+
 .nav-item a {
-  font-weight: 500;
+  display: block;
+  width: 100%;
+  padding: 1rem 0;
+  color: var(--color-white);
+  text-align: center;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
 }
+
+/* No separator on last item */
+.nav-item:last-child a {
+  border-bottom: none;
+}
+
+/* Remove old active underline, optionally emphasize */
 .nav-item.active a {
-  color: var(--color-charcoal);
-  border-bottom: 2px solid var(--color-accent);
+  border-bottom: none;
+  font-weight: 600;
 }
 
 /* Buttons */
@@ -52,60 +64,38 @@
   cursor: pointer;
   transition: background 0.2s, border-color 0.2s;
 }
+
 .btn.solid {
   background-color: var(--color-charcoal);
   color: var(--color-white);
 }
+
 .btn.ghost {
   background: transparent;
-  color: var(--color-charcoal);
+  color: var(--color-white);
   border-color: var(--color-accent);
 }
+
 .btn:hover {
   opacity: 0.9;
 }
 
-/* Hamburger & Mobile Hire */
+/* Hamburger & mobile Hire */
 .hamburger {
   background: none;
   border: none;
   font-size: 1.5rem;
 }
+
+.hamburger i {
+  color: var(--color-white);
+}
+
 .hire-mobile {
   display: inline-block;
 }
-/* ─ assets/css/components.css ─ */
 
-/* Center menu items & add padding + soft grey separators */
-.nav-list {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 0;
-  padding: 0;
-}
-
-.nav-item a {
-  display: block;
-  padding: 1rem 0;                      /* more vertical padding */
-  color: var(--color-charcoal);
-  border-bottom: 1px solid var(--color-gray-light);
-  width: 100%;
-  text-align: center;                   /* center text */
-}
-
-/* Remove separator on last item */
-.nav-item:last-child a {
-  border-bottom: none;
-}
-
-/* Remove the old active border */
-.nav-item.active a {
-  border-bottom: none;
-  font-weight: 600;                     /* optional: emphasize current page */
-}
-
-/* Hide the mobile “Hire me” button when menu is active */
+/* Hide mobile “Hire me” when dropdown is open */
 .nav-menu.active + .nav-actions .hire-mobile {
   display: none !important;
 }
