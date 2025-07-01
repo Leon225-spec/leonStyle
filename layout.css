@@ -1,19 +1,21 @@
 /* assets/css/layout.css */
+
 .container {
   width: 90%;
   max-width: 1200px;
   margin: 0 auto;
 }
 
-/* Sticky header */
+/* Sticky header with charcoal background */
 .header {
   position: sticky;
   top: 0;
-  background: var(--color-white);
+  background: var(--color-charcoal);
   z-index: 1000;
-  border-bottom: 1px solid var(--color-gray-light);
-  position: relative;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
 }
+
+/* Nav container */
 .nav-container {
   display: flex;
   align-items: center;
@@ -31,6 +33,7 @@
   );
   padding: 2rem 0;
 }
+
 .hero-inner {
   display: flex;
   flex-direction: column;
@@ -38,9 +41,15 @@
   text-align: left;
   gap: 2rem;
 }
+
+.hero-content {
+  flex: 1;
+}
+
 .hero-image {
   display: none; /* mobile default */
 }
+
 .hero-buttons {
   display: flex;
   gap: 1rem;
