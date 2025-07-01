@@ -19,6 +19,113 @@
             font-size: 1rem; /* Base font size */
         }
 
+        /* Dark mode styles */
+        body.dark-mode {
+            background-color: #333; /* Charcoal background */
+            color: #f8f8f8; /* Light gray text */
+        }
+        body.dark-mode .text-charcoal {
+            color: #f8f8f8;
+        }
+        body.dark-mode .text-muted-gray {
+            color: #bbb;
+        }
+        body.dark-mode header {
+            background-color: #222; /* Slightly darker charcoal for header */
+            box-shadow: 0 1px 3px 0 rgba(255, 255, 255, 0.08), 0 1px 2px 0 rgba(255, 255, 255, 0.05);
+        }
+        body.dark-mode header nav a {
+            color: #f8f8f8;
+        }
+        body.dark-mode header nav a:hover {
+            text-decoration-color: #f8f8f8;
+        }
+        body.dark-mode .menu-overlay {
+            background-color: rgba(0, 0, 0, 0.9); /* Darker translucent for menu */
+        }
+        body.dark-mode .card-style {
+            background-color: #444; /* Darker cards */
+            box-shadow: 0 1px 3px 0 rgba(255, 255, 255, 0.08), 0 1px 2px 0 rgba(255, 255, 255, 0.05);
+        }
+        body.dark-mode .card-style:hover {
+            box-shadow: 0 10px 15px -3px rgba(255, 255, 255, 0.1), 0 4px 6px -2px rgba(255, 255, 255, 0.05);
+        }
+        body.dark-mode .btn-hover-scale {
+            border-color: #f8f8f8;
+            color: #f8f8f8;
+        }
+        body.dark-mode .btn-hover-scale:hover {
+            background-color: #f8f8f8;
+            color: #333;
+        }
+        body.dark-mode .bg-charcoal {
+            background-color: #f8f8f8;
+            color: #333;
+        }
+        body.dark-mode .bg-charcoal:hover {
+            background-color: #eee;
+        }
+        body.dark-mode .border-subtle-gray {
+            border-color: #555;
+        }
+        body.dark-mode .shadow-light-gray {
+            box-shadow: 0 1px 3px 0 rgba(255, 255, 255, 0.08), 0 1px 2px 0 rgba(255, 255, 255, 0.05);
+        }
+        body.dark-mode .skill-bar-fill {
+            background-color: #f8f8f8;
+        }
+        body.dark-mode .bg-gray-200 {
+            background-color: #666;
+        }
+        body.dark-mode .hover\:bg-gray-100:hover {
+            background-color: #555;
+        }
+        body.dark-mode .border-black {
+            border-color: #f8f8f8;
+        }
+        body.dark-mode .bg-gray-200 {
+            background-color: #666;
+        }
+        body.dark-mode input, body.dark-mode textarea {
+            background-color: #555;
+            border-color: #777;
+            color: #f8f8f8;
+        }
+        body.dark-mode input::placeholder, body.dark-mode textarea::placeholder {
+            color: #bbb;
+        }
+        body.dark-mode input:focus, body.dark-mode textarea:focus {
+            border-color: #f8f8f8;
+        }
+        body.dark-mode footer {
+            background-color: #222;
+            border-top-color: #555;
+        }
+        body.dark-mode footer .social-icon {
+            color: #f8f8f8;
+        }
+        body.dark-mode footer .social-icon:hover {
+            background-color: #f8f8f8;
+            color: #333;
+        }
+        body.dark-mode .theme-toggle-button {
+            background-color: #f8f8f8;
+            color: #333;
+        }
+        body.dark-mode .theme-toggle-button:hover {
+            background-color: #eee;
+        }
+        body.dark-mode .theme-toggle-button svg {
+            fill: #333;
+        }
+        body.dark-mode .theme-toggle-button .sun-icon {
+            display: none;
+        }
+        body.dark-mode .theme-toggle-button .moon-icon {
+            display: block;
+        }
+
+
         /* Custom utility for subtle gray border */
         .border-subtle-gray {
             border-color: #e0e0e0; /* A very light gray */
@@ -75,6 +182,7 @@
         .menu-overlay {
             transition: transform 0.3s ease-out;
             transform: translateY(-100%);
+            background-color: rgba(51, 51, 51, 0.9); /* Translucent charcoal */
         }
 
         .menu-overlay.open {
@@ -225,6 +333,68 @@
         .line-length-control {
             max-width: 60ch; /* Limit line length to ~60 characters */
         }
+
+        /* Lightbox styles */
+        .lightbox-overlay {
+            display: none; /* Hidden by default */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8); /* Translucent charcoal */
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        .lightbox-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .lightbox-content img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            border-radius: 0.5rem;
+        }
+        .lightbox-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            z-index: 1001;
+            padding: 0.5rem;
+        }
+
+        /* Theme toggle animation */
+        .theme-toggle-button svg {
+            transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+        }
+        .theme-toggle-button.rotate-and-fade .sun-icon {
+            transform: rotate(180deg);
+            opacity: 0;
+        }
+        .theme-toggle-button.rotate-and-fade .moon-icon {
+            transform: rotate(0deg); /* Reset for moon */
+            opacity: 1;
+        }
+        body:not(.dark-mode) .theme-toggle-button .moon-icon {
+            display: none; /* Hide moon icon in light mode */
+        }
+        body.dark-mode .theme-toggle-button .sun-icon {
+            display: none; /* Hide sun icon in dark mode */
+        }
+        body:not(.dark-mode) .theme-toggle-button .sun-icon {
+            display: block; /* Show sun icon in light mode */
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-charcoal">
@@ -235,6 +405,7 @@
         <!-- Desktop Navigation -->
         <nav class="hidden md:flex space-x-8 text-lg font-medium">
             <a href="#home" class="hover:underline hover:underline-offset-4 hover:decoration-charcoal transition-all duration-200">Home</a>
+            <a href="#about" class="hover:underline hover:underline-offset-4 hover:decoration-charcoal transition-all duration-200">About</a>
             <a href="#skills" class="hover:underline hover:underline-offset-4 hover:decoration-charcoal transition-all duration-200">Skills</a>
             <a href="#blog" class="hover:underline hover:underline-offset-4 hover:decoration-charcoal transition-all duration-200">Blog</a>
             <a href="#projects" class="hover:underline hover:underline-offset-4 hover:decoration-charcoal transition-all duration-200">Projects</a>
@@ -249,13 +420,14 @@
     </header>
 
     <!-- Mobile Menu Overlay -->
-    <nav id="mobile-menu-overlay" class="menu-overlay fixed inset-0 z-40 bg-gray-900 bg-opacity-90 flex flex-col items-center justify-center space-y-6 text-white text-2xl font-medium">
+    <nav id="mobile-menu-overlay" class="menu-overlay fixed inset-0 z-40 flex flex-col items-center justify-center space-y-6 text-white text-2xl font-medium">
         <button id="close-menu" class="absolute top-6 right-6 p-2 focus:outline-none">
             <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
             </svg>
         </button>
         <a href="#home" class="menu-link block py-2 border-b border-gray-600 w-48 text-center">Home</a>
+        <a href="#about" class="menu-link block py-2 border-b border-gray-600 w-48 text-center">About</a>
         <a href="#skills" class="menu-link block py-2 border-b border-gray-600 w-48 text-center">Skills</a>
         <a href="#blog" class="menu-link block py-2 border-b border-gray-600 w-48 text-center">Blog</a>
         <a href="#projects" class="menu-link block py-2 border-b border-gray-600 w-48 text-center">Projects</a>
@@ -366,6 +538,47 @@
                         </a>
                     </li>
                 </ul>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="page-section bg-white min-h-screen py-16 section-padding hidden">
+            <div class="max-w-4xl mx-auto w-full">
+                <h2 class="text-5xl md:text-6xl font-bold text-charcoal mb-16 fade-in-slide-up">Who I Am</h2>
+
+                <div class="flex flex-col md:flex-row gap-12">
+                    <!-- Left Column: Image and Gallery -->
+                    <div class="md:w-1/2 fade-in-slide-up" style="animation-delay: 0.1s;">
+                        <img src="https://placehold.co/600x400/d0d0d0/333?text=Your+Work+Portrait" alt="Your Work Portrait" class="w-full h-auto rounded-lg shadow-md mb-8">
+                        <div class="flex flex-wrap gap-4 justify-center md:justify-start">
+                            <img src="https://placehold.co/100x100/e0e0e0/333?text=Workspace" alt="Workspace Thumbnail" class="w-16 h-16 rounded-full object-cover cursor-pointer thumbnail" data-src="https://placehold.co/800x600/e0e0e0/333?text=Workspace+Large">
+                            <img src="https://placehold.co/100x100/d0d0d0/333?text=Keyboard" alt="Keyboard Thumbnail" class="w-16 h-16 rounded-full object-cover cursor-pointer thumbnail" data-src="https://placehold.co/800x600/d0d0d0/333?text=Keyboard+Large">
+                            <img src="https://placehold.co/100x100/c0c0c0/333?text=Sketchbook" alt="Sketchbook Thumbnail" class="w-16 h-16 rounded-full object-cover cursor-pointer thumbnail" data-src="https://placehold.co/800x600/c0c0c0/333?text=Sketchbook+Large">
+                            <img src="https://placehold.co/100x100/b0b0b0/333?text=Behind+Scenes" alt="Behind Scenes Thumbnail" class="w-16 h-16 rounded-full object-cover cursor-pointer thumbnail" data-src="https://placehold.co/800x600/b0b0b0/333?text=Behind+Scenes+Large">
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Narrative and Badges -->
+                    <div class="md:w-1/2 fade-in-slide-up" style="animation-delay: 0.3s;">
+                        <p class="text-lg text-charcoal mb-6 line-length-control">
+                            I'm a dedicated front-end developer with a passion for creating intuitive and visually stunning web experiences. My journey in web development began with a fascination for how design and code intertwine to shape digital interactions.
+                        </p>
+                        <p class="text-lg text-charcoal mb-6 line-length-control">
+                            I specialize in bringing designs to life with clean, efficient, and maintainable code, always prioritizing user experience and performance. I love tackling complex challenges and finding elegant solutions that delight users.
+                        </p>
+                        <p class="text-lg text-charcoal mb-8 line-length-control">
+                            Beyond coding, I'm constantly exploring new technologies and design trends to stay at the forefront of the industry. My goal is to build web applications that are not only functional but also a joy to use.
+                        </p>
+
+                        <div class="flex flex-wrap gap-3 mb-8">
+                            <span class="px-4 py-2 border border-charcoal rounded-full text-charcoal text-sm font-medium">5+ Years Experience</span>
+                            <span class="px-4 py-2 border border-charcoal rounded-full text-charcoal text-sm font-medium">React Certified</span>
+                            <span class="px-4 py-2 border border-charcoal rounded-full text-charcoal text-sm font-medium">Accessible by Design</span>
+                        </div>
+
+                        <p class="text-xl font-medium text-charcoal">Let’s collaborate on your next project.</p>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -575,6 +788,55 @@
         </section>
     </main>
 
+    <!-- Lightbox Overlay -->
+    <div id="lightbox-overlay" class="lightbox-overlay">
+        <button id="lightbox-close" class="lightbox-close focus:outline-none focus:ring-2 focus:ring-gray-300 rounded-full">X</button>
+        <div class="lightbox-content">
+            <img id="lightbox-image" src="" alt="Lightbox Image">
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-white py-8 section-padding border-t border-subtle-gray">
+        <div class="max-w-4xl mx-auto w-full flex flex-col md:flex-row items-center justify-between text-center md:text-left space-y-4 md:space-y-0">
+            <!-- Left Side: Copyright -->
+            <div class="text-muted-gray text-sm">
+                © 2025 Leon Nyaramb. All rights reserved.
+            </div>
+
+            <!-- Center: Social Media Icons -->
+            <div class="flex space-x-4">
+                <a href="https://github.com/yourusername" target="_blank" class="w-10 h-10 rounded-full bg-charcoal text-white flex items-center justify-center hover:bg-gray-700 transition-colors duration-300 social-icon focus:outline-none focus:ring-2 focus:ring-gray-300" aria-label="GitHub">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.83 9.504.471.085.678-.232.678-.517 0-.256-.009-1.04-.015-2.04c-2.782.607-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.007.07 1.532 1.03 1.532 1.03.89 1.529 2.34 1.089 2.91.833.091-.647.35-1.089.636-1.334-2.22-.253-4.555-1.116-4.555-4.931 0-1.09.39-1.984 1.029-2.682-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.025A9.432 9.432 0 0112 5.042c.83.003 1.65.115 2.413.337 1.909-1.295 2.747-1.025 2.747-1.025.546 1.378.202 2.397.099 2.65.64.698 1.028 1.592 1.028 2.682 0 3.823-2.339 4.675-4.566 4.922.359.307.678.915.678 1.846 0 1.334-.012 2.41-.012 2.727 0 .287.208.604.685.504C20.137 20.208 23 16.453 23 12.017 23 6.484 18.522 2 13 2h-1z" clip-rule="evenodd" />
+                    </svg>
+                </a>
+                <a href="https://linkedin.com/in/yourusername" target="_blank" class="w-10 h-10 rounded-full bg-charcoal text-white flex items-center justify-center hover:bg-gray-700 transition-colors duration-300 social-icon focus:outline-none focus:ring-2 focus:ring-gray-300" aria-label="LinkedIn">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.25 6.5 1.75 1.75 0 016.5 8.25zM19 19h-3v-4.75c0-1.12-.5-1.5-1.25-1.5S13.5 13.5 13.5 14.75V19h-3v-9h3v1.5c.5-.75 1.25-1.5 2.75-1.5 2 0 3.5 1.5 3.5 4.5z"/>
+                    </svg>
+                </a>
+                <a href="https://twitter.com/yourusername" target="_blank" class="w-10 h-10 rounded-full bg-charcoal text-white flex items-center justify-center hover:bg-gray-700 transition-colors duration-300 social-icon focus:outline-none focus:ring-2 focus:ring-gray-300" aria-label="Twitter">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M22.162 5.656a8.384 8.384 0 01-2.402.658 4.195 4.195 0 001.828-2.308 8.396 8.396 0 01-2.668 1.015 4.185 4.185 0 00-7.127 3.817 11.886 11.886 0 01-8.602-4.37 4.189 4.189 0 001.29 5.578 4.186 4.186 0 01-1.89-.523v.053a4.192 4.192 0 003.355 4.103 4.19 4.19 0 01-1.89.072 4.194 4.194 0 003.923 2.918A8.448 8.448 0 012 18.128a11.85 11.85 0 006.417 1.88c7.707 0 11.92-6.38 11.92-11.92 0-.182-.004-.363-.012-.543a8.502 8.502 0 002.09-2.176z" />
+                    </svg>
+                </a>
+            </div>
+
+            <!-- Right Side: Theme Toggle -->
+            <button id="theme-toggle" class="w-10 h-10 rounded-full bg-charcoal text-white flex items-center justify-center theme-toggle-button focus:outline-none focus:ring-2 focus:ring-gray-300" aria-label="Toggle theme">
+                <svg class="w-6 h-6 sun-icon" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.405 4.605a.75.75 0 011.06 0l1.59 1.59a.75.75 0 01-1.06 1.06L7.405 5.665a.75.75 0 010-1.06zM2.25 12a.75.75 0 01.75-.75h2.25a.75.75 0 010 1.5H3a.75.75 0 01-.75-.75zM4.605 16.595a.75.75 0 010 1.06l-1.59 1.59a.75.75 0 01-1.06-1.06l1.59-1.59a.75.75 0 011.06 0zM12 17.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0v-2.25a.75.75 0 01.75-.75zM16.595 19.395a.75.75 0 01-1.06 0l-1.59-1.59a.75.75 0 011.06-1.06l1.59 1.59a.75.75 0 010 1.06zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5h2.25a.75.75 0 01.75.75zM19.395 7.405a.75.75 0 010-1.06l-1.59-1.59a.75.75 0 011.06-1.06l1.59 1.59a.75.75 0 010 1.06z" />
+                </svg>
+                 <svg class="w-6 h-6 moon-icon" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true" style="display: none;">
+                    <path d="M9.599 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM12.75 9a.75.75 0 01.75.75v.75a.75.75 0 01-1.5 0V9.75a.75.75 0 01.75-.75zM15.905 4.605a.75.75 0 011.06 0l1.59 1.59a.75.75 0 01-1.06 1.06l-1.59-1.59a.75.75 0 010-1.06zM19.395 7.405a.75.75 0 010-1.06l-1.59-1.59a.75.75 0 011.06-1.06l1.59 1.59a.75.75 0 010 1.06zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5h2.25a.75.75 0 01.75.75zM17.25 12a.75.75 0 01.75.75v.75a.75.75 0 01-1.5 0V12.75a.75.75 0 01.75-.75zM16.595 19.395a.75.75 0 01-1.06 0l-1.59-1.59a.75.75 0 011.06-1.06l1.59 1.59a.75.75 0 010 1.06zM12 17.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0v-2.25a.75.75 0 01.75-.75zM4.605 16.595a.75.75 0 010 1.06l-1.59 1.59a.75.75 0 01-1.06-1.06l1.59-1.59a.75.75 0 011.06 0zM2.25 12a.75.75 0 01.75-.75h2.25a.75.75 0 010 1.5H3a.75.75 0 01-.75-.75zM7.405 4.605a.75.75 0 011.06 0l1.59 1.59a.75.75 0 01-1.06 1.06L7.405 5.665a.75.75 0 010-1.06z" />
+                    <path fill-rule="evenodd" d="M11.996 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM4.605 7.405a.75.75 0 010-1.06l1.59-1.59a.75.75 0 011.06 1.06l-1.59 1.59a.75.75 0 01-1.06 0zM2.25 12a.75.75 0 01.75-.75h2.25a.75.75 0 010 1.5H3a.75.75 0 01-.75-.75zM4.605 16.595a.75.75 0 010 1.06l-1.59 1.59a.75.75 0 01-1.06-1.06l1.59-1.59a.75.75 0 011.06 0zM11.996 17.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0v-2.25a.75.75 0 01.75-.75zM16.595 19.395a.75.75 0 01-1.06 0l-1.59-1.59a.75.75 0 011.06-1.06l1.59 1.59a.75.75 0 010 1.06zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5h2.25a.75.75 0 01.75.75zM19.395 7.405a.75.75 0 010-1.06l-1.59-1.59a.75.75 0 011.06-1.06l1.59 1.59a.75.75 0 010 1.06z" />
+                    <path d="M15.5 12a3.5 3.5 0 11-7 0 3.5 3.5 0 017 0z" />
+                </svg>
+            </button>
+        </div>
+    </footer>
+
     <script>
         // Get all page sections
         const pageSections = document.querySelectorAll('.page-section');
@@ -584,6 +846,16 @@
         const closeMenu = document.getElementById('close-menu');
         const menuLinks = document.querySelectorAll('.menu-link');
         const desktopNavLinks = document.querySelectorAll('header nav a'); // Select desktop nav links
+
+        // Lightbox elements
+        const thumbnails = document.querySelectorAll('.thumbnail');
+        const lightboxOverlay = document.getElementById('lightbox-overlay');
+        const lightboxImage = document.getElementById('lightbox-image');
+        const lightboxClose = document.getElementById('lightbox-close');
+
+        // Theme toggle elements
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const body = document.body;
 
         // Function to show a specific section and hide others
         function navigateTo(sectionId) {
@@ -645,9 +917,56 @@
             });
         });
 
-        // Initial page load: show home section
+        // Lightbox functionality
+        thumbnails.forEach(thumbnail => {
+            thumbnail.addEventListener('click', () => {
+                lightboxImage.src = thumbnail.dataset.src;
+                lightboxOverlay.style.display = 'flex';
+                document.body.style.overflow = 'hidden'; // Prevent scrolling when lightbox is open
+            });
+        });
+
+        lightboxClose.addEventListener('click', () => {
+            lightboxOverlay.style.display = 'none';
+            document.body.style.overflow = ''; // Restore scroll
+        });
+
+        lightboxOverlay.addEventListener('click', (e) => {
+            if (e.target === lightboxOverlay) {
+                lightboxOverlay.style.display = 'none';
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Theme toggle functionality
+        function applyTheme(isDarkMode) {
+            if (isDarkMode) {
+                body.classList.add('dark-mode');
+            } else {
+                body.classList.remove('dark-mode');
+            }
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            const isDarkMode = body.classList.toggle('dark-mode');
+            localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+
+            // Add animation class temporarily
+            themeToggleBtn.classList.add('rotate-and-fade');
+            setTimeout(() => {
+                themeToggleBtn.classList.remove('rotate-and-fade');
+            }, 300); // Match CSS transition duration
+        });
+
+        // Check for saved theme preference on load
         document.addEventListener('DOMContentLoaded', () => {
-            navigateTo('home');
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                applyTheme(true);
+            } else {
+                applyTheme(false); // Default to light if no preference or 'light'
+            }
+            navigateTo('home'); // Initial page load: show home section
         });
     </script>
 </body>
