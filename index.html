@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Leon Nyaramb – Portfolio</title>
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600&family=Poppins:wght@700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+  />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/variables.css" />
+  <link rel="stylesheet" href="assets/css/base.css" />
+  <link rel="stylesheet" href="assets/css/layout.css" />
+  <link rel="stylesheet" href="assets/css/components.css" />
+  <link rel="stylesheet" href="assets/css/responsive.css" />
+
+  <!-- JS -->
+  <script defer src="assets/js/main.js"></script>
+</head>
+<body>
+  <!-- Sticky Navbar -->
+  <header class="header sticky">
+    <div class="container nav-container">
+      <!-- Logo -->
+      <a href="#" class="logo">
+        <span class="logo-charcoal">leo</span><span class="logo-accent">nN.</span>
+      </a>
+
+      <!-- Nav links (dropdown panel on mobile) -->
+      <nav id="nav-menu" class="nav-menu">
+        <ul class="nav-list">
+          <li class="nav-item active"><a href="#home">Home</a></li>
+          <li class="nav-item"><a href="#about">About</a></li>
+          <li class="nav-item"><a href="#projects">Projects</a></li>
+          <li class="nav-item"><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Mobile actions: Hire Me + Hamburger -->
+      <div class="nav-actions">
+        <button class="btn ghost hire-mobile">Hire me</button>
+        <button id="nav-toggle" class="hamburger">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <main>
+    <section id="home" class="hero">
+      <div class="container hero-inner">
+        <div class="hero-content">
+          <h1>Crafting seamless web experiences, one pixel at a time.</h1>
+          <p>
+            I’m Leon Nyaramb, a frontend developer passionate about turning ideas
+            into clean, elegant, and performant websites. Let’s bring your vision
+            to life with modern, responsive design — powered by code and creativity.
+          </p>
+          <div class="hero-buttons">
+            <a href="#contact" class="btn solid">Hire Me</a>
+            <a href="#projects" class="btn ghost">View My Work</a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <img
+            src="assets/images/heroPic.png"
+            alt="3D Pixar-style cartoon with purple-blue paint flowing from head to shirt"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+      <div class="container about-content">
+        <h2>About Me</h2>
+        <p>
+          [Your about text goes here…]
+        </p>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+      <div class="container projects-content">
+        <h2>Projects</h2>
+        <p>
+          [Your project intro goes here…]
+        </p>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+      <div class="container contact-content">
+        <h2>Contact</h2>
+        <p>
+          [Your contact info or form…]
+        </p>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

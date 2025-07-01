@@ -1,0 +1,44 @@
+/* assets/css/responsive.css */
+/* Mobile‑first */
+#nav-toggle {
+  display: inline-block;
+}
+.nav-menu {
+  display: none;
+}
+.hero-image {
+  display: none;
+}
+
+/* Desktop and up */
+@media (min-width: 768px) {
+  /* Navbar: show links, hide mobile actions */
+  .nav-actions {
+    display: none;
+  }
+  .nav-menu {
+    position: static !important;
+    max-height: none !important;
+    overflow: visible !important;
+    display: block !important;
+  }
+  .nav-list {
+    flex-direction: row;
+    gap: 2rem;
+  }
+
+  /* Hero: two‑column */
+  .hero-inner {
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+  }
+  .hero-content {
+    flex: 1;
+  }
+  .hero-image {
+    display: block;
+    flex: 1;
+    max-width: 400px;
+  }
+}

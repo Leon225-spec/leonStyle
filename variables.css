@@ -1,0 +1,16 @@
+/* assets/css/variables.css */
+:root {
+  /* Colors */
+  --color-white: #ffffff;
+  --color-charcoal: #333333;
+  --color-accent: #7F5AF0;
+  --color-accent-light: rgba(127, 90, 240, 0.1);
+  --color-gray-light: #e0e0e0;
+
+  /* Fonts */
+  --font-body: 'Quicksand', sans-serif;
+  --font-heading: 'Poppins', sans-serif;
+
+  /* Breakpoints */
+  --breakpoint-md: 768px;
+}
